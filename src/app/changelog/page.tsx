@@ -8,7 +8,6 @@ export const metadata = {
   description: changelogHeadLine,
 }
 
-export const runtime = "edge";
 
 export default function Changelog() {
   return (

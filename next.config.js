@@ -1,8 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['carreypro.com'],
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'carreypro.com',
+      },
+    ],
   },
+  output: 'export',
 }
 
 module.exports = nextConfig

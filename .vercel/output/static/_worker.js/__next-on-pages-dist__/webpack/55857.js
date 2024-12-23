@@ -1,1 +1,0 @@
-var e={},l=(a,c,s)=>(e.__chunk_55857=(i,t,n)=>{"use strict";function o(r){return new Date(`${r}T00:00:00Z`).toLocaleDateString("en-US",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"})}n.d(t,{p:()=>o})},e);export{l as __getNamedExports};

@@ -16,7 +16,6 @@ import IconCloud from "@/components/ui/icon-cloud";
 
 
 
-export const runtime = "edge";
 
 export default async function Home() {
   let blogList = (await getAllBlogs()).slice(0, 4)

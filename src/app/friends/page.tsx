@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: friendsHeadLine,
 }
 
-export const runtime = "edge";
 
 export default function Friends() {
   return (

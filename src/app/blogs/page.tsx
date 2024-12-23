@@ -4,7 +4,6 @@ import { blogHeadLine, blogIntro } from '@/config/infoConfig'
 import Link from 'next/link'
 import { formatDate } from '@/lib/formatDate'
 
-export const runtime = "edge";
 
 export default async function BlogsIndex() {
   // 在构建时，我们只显示示例博客

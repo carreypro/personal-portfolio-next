@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: projectHeadLine,
 }
 
-export const runtime = "edge";
 
 export default function Projects() {
   return (
