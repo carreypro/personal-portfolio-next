@@ -1,5 +1,5 @@
 // personal info
-export const name = 'Carrey'
+export const name = 'carrey'
 export const headline = '产品经理、AI 独立开发者'
 export const introduction = '前互联网大厂产品经理，创业者，用 AI 塑造自己的第二人生。\nStay hungry, stay foolish.'
 
@@ -24,6 +24,19 @@ export const changelogHeadLine = "更新日志"
 export const changelogIntro = "记录这个网站的最新变化。"
 
 // friends
+export type FriendItemType = {
+  name: string
+  description: string
+  link: { href: string, label: string }
+  avatar?: string
+  logo?: string
+}
+
+export const friends: Array<FriendItemType> = [
+  // 暂时为空，等待添加朋友
+]
+
+// friends page
 export const friendsHeadLine = "友情链接"
 export const friendsIntro = "认识一些有趣的朋友。"
 
@@ -32,7 +45,8 @@ export type SocialLinkType = {
   name: string,
   ariaLabel?: string,
   icon: string,
-  href: string
+  href?: string,
+  qrcode?: string
 }
 
 export const socialLinks: Array<SocialLinkType> = [
@@ -57,11 +71,6 @@ export const socialLinks: Array<SocialLinkType> = [
     href: 'https://www.instagram.com/carreyff/'
   },
   {
-    name: 'Xiaohongshu',
-    icon: 'xiaohongshu',
-    href: 'https://www.xiaohongshu.com/user/profile/650fdbc00000000012007d83'
-  },
-  {
     name: 'Bsky',
     icon: 'bsky',
     href: 'https://bsky.app/profile/carrey01.bsky.social'
@@ -69,7 +78,7 @@ export const socialLinks: Array<SocialLinkType> = [
   {
     name: 'Wechat',
     icon: 'wechat',
-    href: 'https://mp.weixin.qq.com/s/DxnRgqNfgzXIhqj6w_x0dQ'
+    qrcode: '/images/wechat-qr.png'
   }
 ]
 
@@ -85,12 +94,12 @@ export type EducationItemType = {
 
 export const educationList: Array<EducationItemType> = [
   {
-    school: '某某大学',
+    school: '川影',
     major: '产品设计',
-    logo: 'college',
-    start: '2019',
-    end: '2023'
-  },
+    logo: '/images/sfa-logo.svg',
+    start: '2018',
+    end: '2022'
+  }
 ]
 
 // career
@@ -106,15 +115,15 @@ export type CareerItemType = {
 
 export const careerList: Array<CareerItemType> = [
   {
-    company: '某科技公司',
+    company: '网易',
     title: '产品经理',
-    logo: 'company',
+    logo: '/images/netease-logo.svg',
     start: '2023',
-    end: '至今',
-    description: '负责 AI 产品的设计和开发，推动产品从 0 到 1 的全过程。'
-  },
+    end: '2024'
+  }
 ]
 
+// projects 
 export type ProjectItemType = {
   name: string
   description: string
@@ -129,74 +138,28 @@ export type ProjectItemType = {
   gitForks?: number
 }
 
-// projects 
 export const projects: Array<ProjectItemType> = [
   {
-    name: 'AI 助手',
-    description: '一个基于 GPT 的智能助手，帮助用户提高工作效率。',
-    link: { href: 'https://ai.carreypro.com', label: '查看项目' },
-    logo: 'ai',
-    category: ['AI', '工具'],
-    tags: ['GPT', 'Next.js', 'React'],
-    techStack: ['OpenAI', 'Next.js', 'TailwindCSS']
+    name: '别逼胡桃出手',
+    description: '永劫无间独立小游戏，仅体验版本。',
+    link: { href: 'https://www.narakathegame.com/h5/20240401/slap/5f6ffc62/#/', label: '查看项目' },
+    image: 'https://yjwujian.res.netease.com/pc/zt/20240313165720/assets/share_eaea6aa5.jpg',
+    category: ['游戏'],
+    tags: ['小游戏']
   },
   {
-    name: '个人博客',
-    description: '使用 Next.js 开发的个人博客网站，支持暗黑模式和响应式设计。',
-    link: { href: 'https://carreypro.com', label: '访问网站' },
-    logo: 'blog',
-    category: ['个人项目', '博客'],
-    tags: ['Next.js', 'React', 'TailwindCSS'],
-    techStack: ['Next.js', 'MDX', 'TailwindCSS']
+    name: '劫着奏乐劫着舞',
+    description: '永劫无间独立小游戏，仅体验版本。',
+    link: { href: 'https://m.yjwujian.cn/h5/20240708/xkyy/fa21ee58/#/', label: '访问游戏' },
+    image: 'https://myjwujian.res.netease.com/pc/zt/20240625104806/keep_origin/assets/share_ed5a184e.jpg',
+    category: ['游戏'],
+    tags: ['小游戏']
   }
 ]
 
 // github projects
 export const githubProjects: Array<ProjectItemType> = [
-  {
-    name: 'Devtoolset',
-    description: 'Open-source & database-free developer tools navigator / 开源无数据库配置的开发者工具导航站',
-    link: { href: 'github.com/iAmCorey/devtoolset', label: 'Devtoolset' },
-    gitStars: 146,
-    gitForks: 47
-  },
-  {
-    name: 'Chrome Extension Plasmo Template',
-    description:
-      'A chrome extension template using plasmo, tailwind css, shadcn/ui',
-    link: { href: 'github.com/iAmCorey/chrome-extension-plasmo-template', label: 'Chrome Extension Plasmo Template' },
-    gitStars: 52,
-    gitForks: 10
-  },
-  {
-    name: 'Awesome Indie Hacker Tools',
-    description:
-      '独立开发/出海开发相关技术栈及工具收录 / Find the best tools for indie hackers here',
-    link: { href: 'github.com/iAmCorey/awesome-indie-hacker-tools', label: 'Awesome Indie Hacker Tools' },
-    gitStars: 763,
-    gitForks: 61
-  },
-  {
-    name: 'Awesome AI Directory',
-    description:
-      'AI资源工具导航站收录 / Find all the best AI directories',
-    link: { href: 'github.com/iAmCorey/awesome-ai-directory', label: 'Awesome AI Directory' },
-    gitStars: 37,
-    gitForks: 5
-  },
-  {
-    name: 'Producthunt Daily Bot',
-    description:
-      'A bot getting product hunt daily top products',
-    link: { href: 'github.com/iAmCorey/producthunt-daily-bot', label: 'Producthunt Daily Bot' },
-  },
-  {
-    name: 'Cantonese Echoes',
-    description:
-      'Cantonese Echoes / 粵語殘片',
-    link: { href: 'github.com/iAmCorey/Cantonese-Echoes', label: 'Cantonese Echoes' },
-    gitStars: 1
-  },
+  // 暂时为空，等待添加 GitHub 项目
 ]
 
 // changelog
@@ -210,39 +173,30 @@ export type ChangelogItemType = {
 
 export const changelogList: Array<ChangelogItemType> = [
   {
-    date: '2024-11-18',
+    date: '2024-12-20',
     content: [
       {
         title: '💡 Idea come up',
-        description: 'I want to have a portfolio websit. The website doesn\'t need to be so fancy but should have a good design. It need to show all my projects and have a blog section to share my ideas and my development experience.'
-      },
+        description: '开始接触 AI Coding，也许是时候该学习新的领域了，就从个人网站开始吧。'
+      }
     ]
   },
   {
-    date: '2024-11-22',
+    date: '2024-12-21',
     content: [
       {
-        title: '🛫 Project deployed',
-        description: 'My portfolio website\'s first version finished building and deployed'
-      },
+        title: '💻 学习 AI Coding',
+        description: '开始使用 windsurf 进行尝试～'
+      }
     ]
   },
   {
-    date: '2024-12-10',
+    date: '2024-12-23',
     content: [
       {
-        title: '👭 Add friends page',
-        description: 'Add friends page to list my friends'
-      },
-    ]
-  },
-  {
-    date: '2024-12-11',
-    content: [
-      {
-        title: '🌿 Open source',
-        description: 'Open source my portfolio website'
-      },
+        title: '🛫慢慢更新',
+        description: '逐渐增加我的项目'
+      }
     ]
   }
 ]
@@ -272,46 +226,3 @@ export const techIcons = [
   "apple",
   "wechat"
 ];
-
-// friends
-export type FriendItemType = {
-  name: string
-  description?: string
-  link: { href: string, label?: string }
-  logo?: string
-}
-
-export const friends: Array<FriendItemType> = [
-  {
-    name: 'Corey Chiu',
-    link: { href: 'https://coreychiu.com' },
-  },
-  {
-    name: 'Axis Wang',
-    link: { href: 'https://wangxs.cfd' },
-  },
-  {
-    name: 'Greener-Dalii Studio',
-    link: { href: 'https://greenerdalii.top' },
-  },
-  {
-    name: 'Luolink',
-    link: { href: 'https://luolink.com' },
-  },
-  {
-    name: 'Frend guo',
-    link: { href: 'https://frendguo.com' },
-  },
-  {
-    name: 'Amon Xu',
-    link: { href: 'https://amonxu.com' },
-  },
-  {
-    name: 'Bill Fu',
-    link: { href: 'https://billfu.com' },
-  },
-  {
-    name: 'SavoKiss',
-    link: { href: 'https://savokiss.com' },
-  },
-]
