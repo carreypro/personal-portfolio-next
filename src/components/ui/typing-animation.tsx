@@ -33,14 +33,20 @@ export default function TypingAnimation({
     };
   }, [duration, i, text]);
 
+  const formattedText = (displayedText || text).split('\n').map((line, index) => (
+    <span key={index} className="block">
+      {line}
+    </span>
+  ));
+
   return (
     <h1
       className={cn(
-        "font-display text-center text-4xl font-bold leading-[5rem] tracking-[-0.02em] drop-shadow-sm",
+        "font-display text-center text-4xl font-bold leading-[3rem] tracking-[-0.02em] drop-shadow-sm",
         className,
       )}
     >
-      {displayedText ? displayedText : text}
+      {formattedText}
     </h1>
   );
 }
