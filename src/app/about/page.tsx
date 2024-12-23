@@ -4,16 +4,18 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { aboutMeHeadline, aboutParagraphs } from '@/config/infoConfig'
 import { Container } from '@/components/layout/Container'
+import AboutMe from '@/components/about/AboutMe'
+import SocialLinks from '@/components/about/SocialLinks'
+import Education from '@/components/about/Education'
+import Career from '@/components/about/Career'
 
 import portraitImage from '@/images/portrait.png'
-import SocialLinks from '@/components/about/SocialLinks'
 
 export const runtime = "edge";
 
 export const metadata: Metadata = {
-  title: 'About',
-  description:
-    'I’m Spencer Sharp. I live in New York City, where I design the future.',
+  title: 'About | carrey',
+  description: aboutMeHeadline,
 }
 
 export default function About() {
@@ -30,7 +32,7 @@ export default function About() {
             />
           </div>
         </div>
-        <div className="lg:order-first cd /Users/jingguan/windsurfprogram/geren/temp && npm run pages:deploylg:row-span-2">
+        <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             {aboutMeHeadline}
           </h1>
@@ -43,7 +45,12 @@ export default function About() {
           </div>
         </div>
         <div className="lg:pl-20">
-          <SocialLinks />
+          <div className="space-y-6">
+            <AboutMe />
+            <SocialLinks />
+            <Education />
+            <Career />
+          </div>
         </div>
       </div>
     </Container>
