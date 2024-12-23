@@ -1,9 +1,7 @@
 // personal info
 export const name = 'Carrey'
 export const headline = '产品经理、AI 独立开发者'
-export const introduction = '前互联网大厂产品经理，创业者，用 AI 塑造自己的第二人生。'
-export const email = 'carrey@carreypro.com'
-export const githubUsername = 'carrey'
+export const introduction = '前互联网大厂产品经理，创业者，用 AI 塑造自己的第二人生。\nStay hungry, stay foolish.'
 
 // about page
 export const aboutMeHeadline = "我是 carrey，现居杭州的产品经理"
