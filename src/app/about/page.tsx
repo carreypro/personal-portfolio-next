@@ -1,5 +1,3 @@
-'use client'
-
 import { Metadata } from 'next'
 import { aboutMeHeadline } from '@/config/infoConfig'
 import { Container } from '@/components/layout/Container'
