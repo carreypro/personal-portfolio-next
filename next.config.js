@@ -9,7 +9,11 @@ const nextConfig = {
       },
     ],
   },
-  output: 'export',
+  output: 'standalone',
+  distDir: '.next',
+  experimental: {
+    serverActions: false,
+  },
 }
 
 module.exports = nextConfig
