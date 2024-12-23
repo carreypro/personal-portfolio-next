@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="256" cy="256" r="256" fill="#F3F4F6"/>
+  
+  <!-- 头部轮廓 -->
+  <circle cx="256" cy="200" r="120" fill="#4B5563"/>
+  
+  <!-- 身体轮廓 -->
+  <path d="M128 400C128 311.634 183.634 256 272 256H240C328.366 256 384 311.634 384 400V512H128V400Z" fill="#4B5563"/>
+  
+  <!-- 装饰元素 -->
+  <circle cx="200" cy="180" r="16" fill="white"/>
+  <circle cx="312" cy="180" r="16" fill="white"/>
+  
+  <!-- 笑容 -->
+  <path d="M200 240C200 240 228 280 256 280C284 280 312 240 312 240" stroke="white" stroke-width="12" stroke-linecap="round"/>
+</svg>
