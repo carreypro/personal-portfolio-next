@@ -8,6 +8,7 @@ import { Container } from '@/components/layout/Container'
 import portraitImage from '@/images/portrait.png'
 import SocialLinks from '@/components/about/SocialLinks'
 
+export const runtime = "edge";
 
 export const metadata: Metadata = {
   title: 'About',
