@@ -1,6 +1,6 @@
 "use client"
 
-import { email, socialLinks } from '@/config/infoConfig'
+import { socialLinks } from '@/config/infoConfig'
 import { utm_source } from '@/config/siteConfig'
 import Link from 'next/link'
 import { CustomIcon } from '@/components/shared/CustomIcon'
@@ -22,16 +22,6 @@ export default function SocialLinks({ className }: { className?: string }) {
                     <span className="sr-only">{link.name}</span>
                 </Link>
             ))}
-            <Link
-                href={`mailto:${email}`}
-                target="_blank"
-                rel="noreferrer"
-                aria-label='Email'
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
-            >
-                <CustomIcon name='email' />
-                <span className="sr-only">Email</span>
-            </Link>
         </div>
     )
 }

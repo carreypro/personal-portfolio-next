@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { name, email } from '@/config/infoConfig'
+import { name } from '@/config/infoConfig'
 
 export const runtime = 'edge'
 
@@ -19,7 +19,7 @@ export async function GET() {
       <title>Welcome to My Blog</title>
       <link>${siteUrl}/blogs/example</link>
       <description>This is my first blog post</description>
-      <author>${email} (${name})</author>
+      <author>${name}</author>
       <pubDate>${currentDate}</pubDate>
       <guid>${siteUrl}/blogs/example</guid>
     </item>
