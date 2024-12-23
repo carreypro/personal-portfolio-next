@@ -1,7 +1,7 @@
 // personal info
-export const name = 'carrey'
+export const name = 'Carrey'
 export const headline = '产品经理、AI 独立开发者'
-export const introduction = '前互联网大厂产品经理，创业者，用 AI 塑造自己的第二人生。\n\nStay hungry, stay foolish.'
+export const introduction = '前互联网大厂产品经理，创业者，用 AI 塑造自己的第二人生。\nStay hungry, stay foolish.'
 
 // about page
 export const aboutMeHeadline = "我是 carrey，现居杭州的产品经理"
@@ -132,12 +132,13 @@ export type ProjectItemType = {
 // projects 
 export const projects: Array<ProjectItemType> = [
   {
-    name: '别逼胡桃出手',
-    description: '永劫无间独立小游戏，仅体验版本。',
-    link: { href: 'https://www.yjwujian.cn/h5/20240401/slap/#/', label: '体验游戏' },
-    image: 'https://yjwujian.res.netease.com/pc/zt/20240313165720/assets/share_eaea6aa5.jpg',
-    category: ['游戏'],
-    tags: ['#minigame'],
+    name: 'AI 助手',
+    description: '一个基于 GPT 的智能助手，帮助用户提高工作效率。',
+    link: { href: 'https://ai.carreypro.com', label: '查看项目' },
+    logo: 'ai',
+    category: ['AI', '工具'],
+    tags: ['GPT', 'Next.js', 'React'],
+    techStack: ['OpenAI', 'Next.js', 'TailwindCSS']
   },
   {
     name: '个人博客',
