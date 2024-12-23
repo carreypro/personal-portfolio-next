@@ -4,8 +4,6 @@ import { aboutMeHeadline } from '@/config/infoConfig'
 import { Container } from '@/components/layout/Container'
 import AboutMe from '@/components/about/AboutMe'
 import SocialLinks from '@/components/about/SocialLinks'
-import Education from '@/components/about/Education'
-import Career from '@/components/about/Career'
 import portraitImage from '@/images/portrait.png'
 
 export const metadata: Metadata = {
@@ -26,18 +24,12 @@ export default function About() {
               className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
             />
           </div>
+          <div className="mt-8 flex justify-end">
+            <SocialLinks />
+          </div>
         </div>
         <div className="lg:order-first lg:row-span-2">
           <AboutMe />
-          <div className="mt-12">
-            <Education />
-          </div>
-          <div className="mt-12">
-            <Career />
-          </div>
-          <div className="mt-12">
-            <SocialLinks />
-          </div>
         </div>
       </div>
     </Container>
