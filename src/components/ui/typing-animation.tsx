@@ -20,18 +20,18 @@ export default function TypingAnimation({
 
   useEffect(() => {
     const typingEffect = setInterval(() => {
-      if (i < text.length) {
-        setDisplayedText(text.substring(0, i + 1));
-        setI(i + 1);
-      } else {
+      setDisplayedText(text.substring(0, i));
+      if (i >= text.length) {
         clearInterval(typingEffect);
+      } else {
+        setI(i + 1);
       }
     }, duration);
 
     return () => {
       clearInterval(typingEffect);
     };
-  }, [duration, i]);
+  }, [duration, i, text]);
 
   return (
     <h1

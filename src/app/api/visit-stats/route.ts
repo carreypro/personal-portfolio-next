@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { cacheInstance } from '@/lib/cache'
 
 export const runtime = 'edge'
 
@@ -7,50 +8,45 @@ const OPENPANEL_CLIENT_ID = process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID;
 const OPENPANEL_SECRET_ID = process.env.OPENPANEL_API_SECRET_ID;
 const OPENPANEL_PROJECT_ID = process.env.OPENPANEL_PROJECT_ID;
 
+const CACHE_KEY = 'visit_stats';
+const CACHE_TTL = 300; // 5 minutes
+
 export async function GET() {
   try {
+    // Check cache first
+    const cachedData = cacheInstance.get(CACHE_KEY);
+    if (cachedData) {
+      return NextResponse.json(cachedData);
+    }
+
+    if (!OPENPANEL_PROJECT_ID || !OPENPANEL_CLIENT_ID || !OPENPANEL_SECRET_ID) {
+      throw new Error('Missing OpenPanel configuration');
+    }
+
     // 获取总访问数据
-    const response = await fetch(`${OPENPANEL_API_URL}/export/events?projectId=coreychiu&event=screen_view`, {
+    const response = await fetch(`${OPENPANEL_API_URL}/export/events?projectId=${OPENPANEL_PROJECT_ID}&event=screen_view`, {
       headers: {
-        'openpanel-client-id': OPENPANEL_CLIENT_ID!,
-        'openpanel-client-secret': OPENPANEL_SECRET_ID!,
+        'openpanel-client-id': OPENPANEL_CLIENT_ID,
+        'openpanel-client-secret': OPENPANEL_SECRET_ID,
       },
+      next: { revalidate: CACHE_TTL },
     });
 
     if (!response.ok) {
-      throw new Error('Failed to fetch visit stats');
+      const error = await response.text();
+      throw new Error(`Failed to fetch visit stats: ${error}`);
     }
 
     const data = await response.json();
-    const totalUV = data?.meta?.totalCount;
-
-    // 获取今日访问数据
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().split('T')[0];
-    const todayStr = today.toISOString().split('T')[0];
-    const todayResponse = await fetch(`${OPENPANEL_API_URL}/export/events?projectId=${OPENPANEL_PROJECT_ID}&event=screen_view&start=${yesterdayStr}&end=${todayStr}`, {
-      headers: {
-        'openpanel-client-id': OPENPANEL_CLIENT_ID!,
-        'openpanel-client-secret': OPENPANEL_SECRET_ID!,
-      },
-    });
-
-    if (!todayResponse.ok) {
-      throw new Error('Failed to fetch visit stats');
-    }
-
-    const todayData = await todayResponse.json();
-    const dailyUV = todayData?.meta?.totalCount;
-
-    return NextResponse.json({
-      totalUV,
-      dailyUV,
-    });
+    
+    // Cache the response
+    cacheInstance.set(CACHE_KEY, data, CACHE_TTL);
+    
+    return NextResponse.json(data);
   } catch (error) {
+    console.error('Error fetching visit stats:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch visit stats' },
+      { error: 'Failed to fetch visit statistics' },
       { status: 500 }
     );
   }
