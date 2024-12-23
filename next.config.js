@@ -11,9 +11,6 @@ const nextConfig = {
   },
   output: 'standalone',
   distDir: '.next',
-  experimental: {
-    serverActions: false,
-  },
 }
 
 module.exports = nextConfig
