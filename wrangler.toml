@@ -2,18 +2,18 @@ name = "personal-portfolio-next"
 compatibility_date = "2023-12-01"
 
 [build]
-command = "npm run pages:build"
+command = "npm run build"
 cwd = "."
-dist = "out"
+dist = ".next"
 
 [site]
-bucket = "out"
+bucket = ".next"
 
 [env.production]
 name = "personal-portfolio-next"
 
 [env.production.build]
-command = "npm run pages:build"
+command = "npm run build"
 
 [env.production.vars]
 NEXT_PUBLIC_SITE_URL = "https://carreypro.com"
