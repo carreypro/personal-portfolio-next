@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npm run build",
-    "pages:dev": "npx wrangler pages dev .next/static --compatibility-date=2023-12-01 --compatibility-flag=nodejs_compat",
-    "pages:deploy": "npm run build && npx wrangler pages deploy .next/static"
+    "pages:build": "next build",
+    "pages:dev": "npx wrangler pages dev out",
+    "pages:deploy": "next build && npx wrangler pages deploy out"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {

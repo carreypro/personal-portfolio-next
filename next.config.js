@@ -9,8 +9,8 @@ const nextConfig = {
       },
     ],
   },
-  output: 'standalone',
-  distDir: '.next',
+  output: 'export',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig

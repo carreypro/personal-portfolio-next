@@ -1,19 +1,16 @@
 name = "personal-portfolio-next"
 compatibility_date = "2023-12-01"
-compatibility_flags = ["nodejs_compat"]
 
 [build]
 command = "npm run pages:build"
 cwd = "."
-dist = ".next/static"
+dist = "out"
 
 [site]
-bucket = ".next/static"
+bucket = "out"
 
 [env.production]
 name = "personal-portfolio-next"
-node_version = "18"
-workers_dev = true
 
 [env.production.build]
 command = "npm run pages:build"

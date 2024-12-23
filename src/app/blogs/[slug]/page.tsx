@@ -4,8 +4,6 @@ import { notFound } from 'next/navigation'
 import { getBlogBySlug } from '@/lib/blogs'
 import { BlogLayout } from '@/components/layout/BlogLayout'
 
-export const runtime = 'edge'
-
 interface Props {
   params: {
     slug: string
@@ -50,15 +48,16 @@ In this blog, I'll be sharing:
 1. Coding tips and tricks
 2. Project updates
 3. Tech insights
+4. Personal experiences
 
 Stay tuned for more content!
 `
 
   return (
     <BlogLayout blog={blog}>
-      <div className="mt-8 prose dark:prose-invert">
-        <pre className="whitespace-pre-wrap">{content}</pre>
-      </div>
+      <article className="prose prose-neutral dark:prose-invert">
+        {content}
+      </article>
     </BlogLayout>
   )
 }
