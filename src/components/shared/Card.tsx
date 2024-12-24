@@ -2,7 +2,6 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { ChevronRightIcon } from 'lucide-react'
 
-
 export function Card<T extends React.ElementType = 'div'>({
   as,
   className,
@@ -28,10 +27,10 @@ Card.Link = function CardLink({
 }: React.ComponentPropsWithoutRef<typeof Link>) {
   return (
     <>
-      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 transition group-hover:scale-100 sm:-inset-x-6 sm:rounded-2xl group-hover:bg-muted/50 " />
+      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-gradient-to-b from-muted/0 to-muted/5 opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100 dark:from-muted/0 dark:to-muted/10 sm:-inset-x-6 sm:rounded-2xl" />
       <Link {...props}>
         <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-        <span className="relative z-10">{children}</span>
+        <span className="relative z-10 transition duration-300 group-hover:text-primary">{children}</span>
       </Link>
     </>
   )
@@ -48,7 +47,7 @@ Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
   let Component = as ?? 'h2'
 
   return (
-    <Component className="text-base font-semibold tracking-tight">
+    <Component className="text-base font-semibold tracking-tight text-foreground transition duration-300 group-hover:text-primary">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
@@ -60,7 +59,7 @@ Card.Description = function CardDescription({
   children: React.ReactNode
 }) {
   return (
-    <p className="relative z-10 mt-2 text-sm text-muted-foreground">
+    <p className="relative z-10 mt-2 text-sm text-muted-foreground transition duration-300 group-hover:text-foreground">
       {children}
     </p>
   )
@@ -73,7 +72,7 @@ Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
       className="relative z-10 mt-4 flex items-center text-sm font-medium text-primary"
     >
       {children}
-      <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
+      <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current transition duration-300 group-hover:translate-x-1" />
     </div>
   )
 }
