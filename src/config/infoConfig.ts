@@ -6,7 +6,7 @@ export const introduction = '前互联网大厂产品经理，创业者，用 AI
 // about page
 export const aboutMeHeadline = "我是 carrey，现居杭州的产品经理"
 export const aboutParagraphs = [
-  "00 后，曾经拿过永劫无间季军，也办过三届电竞比赛，后来转行当产品。",
+  "曾经是电竞选手、赛事策划，办过三届电竞比赛，后来转行当产品。",
   "现在是 AI Coding 爱好者，致力于开发应用。",
   "也是电影研究员、胶片爱好者。"
 ]
