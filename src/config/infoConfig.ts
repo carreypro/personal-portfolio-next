@@ -1,7 +1,10 @@
+import { getAssetPath } from '@/lib/assets'
+
 // personal info
 export const name = 'carrey'
 export const headline = '产品经理、AI 独立开发者'
-export const introduction = '前互联网大厂产品经理，创业者，用 AI 塑造自己的第二人生。\n\nContext, Not Control'
+export const introduction = '前互联网大厂产品经理，创业者，用 AI 塑造自己的第二人生。\n\n\nContext, Not Control.'
+export const avatar = getAssetPath('avatar')
 
 // about page
 export const aboutMeHeadline = "我是 carrey，现居杭州的产品经理"
@@ -78,7 +81,7 @@ export const socialLinks: Array<SocialLinkType> = [
   {
     name: 'Wechat',
     icon: 'wechat',
-    qrcode: '/images/wechat-qr.png'
+    qrcode: getAssetPath('wechat-qr')
   }
 ]
 
@@ -96,7 +99,7 @@ export const educationList: Array<EducationItemType> = [
   {
     school: '川影',
     major: '产品设计',
-    logo: '/images/sfa-logo.svg',
+    logo: getAssetPath('sfa-logo'),
     start: '2018',
     end: '2022'
   }
@@ -117,9 +120,10 @@ export const careerList: Array<CareerItemType> = [
   {
     company: '网易',
     title: '产品经理',
-    logo: '/images/netease-logo.svg',
-    start: '2023',
-    end: '2024'
+    logo: getAssetPath('netease-logo'),
+    start: '2022',
+    end: '2023',
+    description: '负责游戏工具产品的设计和开发。'
   }
 ]
 
@@ -140,20 +144,40 @@ export type ProjectItemType = {
 
 export const projects: Array<ProjectItemType> = [
   {
-    name: '别逼胡桃出手',
-    description: '永劫无间独立小游戏，仅体验版本。',
-    link: { href: 'https://www.narakathegame.com/h5/20240401/slap/5f6ffc62/#/', label: '查看项目' },
-    image: 'https://yjwujian.res.netease.com/pc/zt/20240313165720/assets/share_eaea6aa5.jpg',
-    category: ['游戏'],
+    name: '猫修APP',
+    description: '让游戏更简单',
+    link: { href: 'https://www.lmaoyx.com/', label: '查看项目' },
+    tags: ['APP']
+  },
+  {
+    name: '一修大师',
+    description: '最方便的免费游戏修改器工具',
+    link: { href: 'https://www.lmaoyx.com/pc/yixiu', label: '查看项目' },
+    tags: ['修改器']
+  },
+  {
+    name: '老猫汉化',
+    description: '一站式汉化游戏平台',
+    link: { href: 'https://www.lmaoyx.com/pc/laomao', label: '查看项目' },
+    tags: ['汉化']
+  },
+  {
+    name: '永劫无间系列',
+    description: '官网',
+    link: { href: 'https://www.yjwujian.cn/', label: '查看项目' },
+    tags: ['官网', '专题']
+  },
+  {
+    name: '永劫无间系列',
+    description: '小游戏',
+    link: { href: 'https://www.yjwujian.cn/h5/20240401/slap/', label: '查看项目' },
     tags: ['小游戏']
   },
   {
-    name: '劫着奏乐劫着舞',
-    description: '永劫无间独立小游戏，仅体验版本。',
-    link: { href: 'https://m.yjwujian.cn/h5/20240708/xkyy/fa21ee58/#/', label: '访问游戏' },
-    image: 'https://myjwujian.res.netease.com/pc/zt/20240625104806/keep_origin/assets/share_ed5a184e.jpg',
-    category: ['游戏'],
-    tags: ['小游戏']
+    name: '游侠杯电子竞技全民赛',
+    description: '为玩家们提供敢秀敢玩的尊洗平台',
+    link: { href: 'https://www.ali213.net/youxiacup/#page1', label: '查看项目' },
+    tags: ['电竞赛事', '专题']
   }
 ]
 

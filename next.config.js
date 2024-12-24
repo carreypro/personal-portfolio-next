@@ -5,12 +5,8 @@ const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'carreypro.com',
-      },
-    ],
+    remotePatterns: [],
+    domains: [],
   },
   trailingSlash: true,
   webpack: (config, { dev, isServer }) => {
@@ -27,9 +23,22 @@ const nextConfig = {
         })
       );
     }
+    
+    // 处理 SVG
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack']
+    });
+
     return config;
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  // 静态资源配置
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/static' : '',
+  // 生成唯一的构建ID
+  generateBuildId: async () => {
+    return 'build-' + Date.now()
+  },
 }
 
 module.exports = withMDX(nextConfig)

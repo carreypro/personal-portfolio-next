@@ -2,6 +2,7 @@
 
 import { educationList } from '@/config/infoConfig'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 
 export default function Education() {
   return (
@@ -16,13 +17,17 @@ export default function Education() {
             className="flex items-center space-x-4 rounded-lg border border-zinc-100 p-4 dark:border-zinc-700/40"
           >
             {education.logo && (
-              <Image
-                src={education.logo}
-                alt={education.school}
-                width={48}
-                height={48}
-                className="rounded-lg"
-              />
+              <div className="h-12 w-12 flex items-center justify-center overflow-hidden">
+                <Image
+                  src={education.logo}
+                  alt={education.school}
+                  width={48}
+                  height={48}
+                  className="object-contain w-full h-full"
+                  priority
+                  loading="eager"
+                />
+              </div>
             )}
             <div className="flex-1">
               <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">

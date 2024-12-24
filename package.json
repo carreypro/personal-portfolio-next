@@ -7,9 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "clean": "rm -rf .next out",
+    "verify-assets": "node scripts/verify-assets.js",
+    "organize-assets": "node scripts/organize-assets.js",
+    "generate-images": "node scripts/generate-image-constants.js",
     "pages:build": "next build",
     "pages:dev": "npx wrangler pages dev out",
-    "pages:deploy": "next build && npx wrangler pages deploy out"
+    "pages:deploy": "npm run clean && npm run organize-assets && npm run verify-assets && npm run optimize-images && next build && npx wrangler pages deploy out --no-cache",
+    "optimize-images": "node scripts/optimize-images.js"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -36,7 +41,6 @@
     "react-github-calendar": "^4.5.2",
     "react-icon-cloud": "^4.1.4",
     "remark-gfm": "^3.0.1",
-    "sharp": "^0.33.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7"
@@ -45,6 +49,7 @@
     "@cloudflare/next-on-pages": "^1.8.5",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
@@ -54,8 +59,10 @@
     "postcss": "^8.4.33",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.11",
+    "sharp": "^0.33.5",
     "terser-webpack-plugin": "^5.3.11",
     "typescript": "^5.3.3",
+    "url-loader": "^4.1.1",
     "vercel": "^33.7.1",
     "wrangler": "^3.22.1"
   }

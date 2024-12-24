@@ -4,7 +4,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { aboutMeHeadline, aboutParagraphs } from '@/config/infoConfig'
 import { Container } from '@/components/layout/Container'
-import portraitImage from '@/images/portrait.png'
+import portraitImage from '@/images/portrait.jpg'
 import SocialLinks from '@/components/about/SocialLinks'
 
 export const metadata: Metadata = {
